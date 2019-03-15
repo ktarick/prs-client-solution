@@ -1,13 +1,19 @@
 <div>
-  <table class="table table-sm table-striped">
-    <thead class="thead-dark">
-      <td>Username</td>
-      <td>Name</td>
-      <td>Phone</td>
-      <td>Email</td>
-      <td>Reviewer ?</td>
-      <td>Admin ?</td>
-      <td>Actions</td>
+  <div>
+    <span class="pagetitle">User List</span>
+    <span class="create"> | <a routerLink="/user/create">Create</a></span>
+  </div>
+  <table class="table table-sm table-hover table-bordered">
+    <thead>
+      <tr>
+        <td>Username</td>
+        <td>Name</td>
+        <td>Phone</td>
+        <td>Email</td>
+        <td class="text-center">Reviewer?</td>
+        <td class="text-center">Admin?</td>
+        <td>Actions</td>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
@@ -15,11 +21,11 @@
         <td>{{user.firstname}} {{user.lastname}}</td>
         <td>{{user.phone}}</td>
         <td>{{user.email}}</td>
-        <td>{{user.isReviewer}}</td>
-        <td>{{user.isAdmin}} </td>
+        <td class="text-center">{{user.isReviewer ? "Yes" : "No"}}</td>
+        <td class="text-center">{{user.isAdmin ? "Yes" : "No"}} </td>
         <td>
           <a routerLink="/user/detail/{{user.id}}">Detail |</a>
-          <a routerLink="/user/detail/{{user.id}}"> Edit</a>
+          <a routerLink="/user/edit/{{user.id}}"> Edit</a>
         </td>
       </tr>
     </tbody>

@@ -1,3 +1,41 @@
-<p>
-  user-detail works!
-</p>
+<div *ngIf="user">
+    <div>
+      <span class="pagetitle">Detail</span>
+    </div>
+    <div>
+    <table class="table table-sm table-hover table-bordered" style="width:400px">
+      <thead>
+        <tr>
+          <td>Id</td><td>{{user.id}}</td>
+        </tr>
+        <tr>
+          <td>Username</td><td>{{user.username}}</td>
+        </tr>
+        <tr>  
+          <td>First Name</td><td>{{user.firstname}}</td>
+        </tr>
+        <tr>  
+          <td>Last Name</td><td>{{user.lastname}}</td>
+        </tr>
+        <tr>  
+          <td>Phone</td><td>{{user.phone}}</td>
+        </tr>
+        <tr>  
+          <td>Email</td><td>{{user.email}}</td>
+        </tr>
+        <tr>  
+          <td>Reviewer?</td><td>{{user.isReviewer ? "Yes" : "No"}}</td>
+        </tr>
+        <tr>  
+          <td>Admin?</td><td>{{user.isAdmin ? "Yes" : "No"}} </td>
+        </tr>
+        <tr>  
+          <td>Active</td><td>{{user.active ? "Yes" : "No"}}</td>
+        </tr>  
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <!-- <button (click)="location.href = '/user/edit/{{user.id}}'">Edit </button> -->
+  </div>
+</div>
