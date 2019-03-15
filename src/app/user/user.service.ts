@@ -11,10 +11,10 @@ const url = 'http://localhost:61260/api'
 export class UserService {
 
   list(): Observable<User[]> {
-    return this.http.get(`${url}/user`) as Observable<User[]>;
+    return this.http.get(`${url}/users`) as Observable<User[]>;
   }
   get(id: string): Observable<User> {
-    return this.http.get(`${url}/user/${id}`) as Observable<User>;
+    return this.http.get(`${url}/users/${id}`) as Observable<User>;
   }
   constructor(private http: HttpClient) { }
 }

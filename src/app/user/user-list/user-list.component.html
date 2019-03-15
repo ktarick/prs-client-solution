@@ -1,3 +1,27 @@
-<p>
-  user-list works!
-</p>
+<div>
+  <table class="table table-sm table-striped">
+    <thead class="thead-dark">
+      <td>Username</td>
+      <td>Name</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>Reviewer ?</td>
+      <td>Admin ?</td>
+      <td>Actions</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.username}}</td>
+        <td>{{user.firstname}} {{user.lastname}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.isReviewer}}</td>
+        <td>{{user.isAdmin}} </td>
+        <td>
+          <a routerLink="/user/detail/{{user.id}}">Detail |</a>
+          <a routerLink="/user/detail/{{user.id}}"> Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
