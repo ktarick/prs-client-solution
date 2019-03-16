@@ -1,30 +1,40 @@
-<table class="table">
-  <tr>  
-    <td>Username</td>
-    <td><input [(ngModel)]="user.unsername" class="inputstring" type="text"></td>
-  </tr>
-  <br>
-  <tr>
-    <td>Password</td>
-    <td><input [(ngModel)]="user.password" class="inputstring" type="text"></td>
-  </tr>
-  <br>
-  <tr>
-    <td>First Name</td>
-    <td><input [(ngModel)]="user.firstname" class="inputstring" type="text"></td>
-  </tr>
-  <br>
-  <tr>
-    <td>Last Name</td>
-    <td><input [(ngModel)]="user.lastname" class="inputstring" type="text"></td>
-  </tr>
-  <br>
-  <tr>
-    <td>Last Name</td>
-    <td><input [(ngModel)]="user.lastname" class="inputstring" type="checkbox"></td>
-  </tr>
-  <br>
-  <tr>
+<div>
+  <div>
+      <span class="pagetitle">Create New User</span>
+  </div>
+    <table class="table table-sm table-bordered" style="width:350px">
+        <tr>  
+        <td>Username</td>
+        <td><input [(ngModel)]="user.unsername" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input [(ngModel)]="user.password" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>First Name</td>
+        <td><input [(ngModel)]="user.firstname" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><input [(ngModel)]="user.lastname" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td><input [(ngModel)]="user.phone" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input [(ngModel)]="user.email" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Reviewer</td>
+        <td><input [(ngModel)]="user.isReviewer" class="inputstring" type="checkbox"></td>
+      </tr>
+      <tr>
+        <td>Admin</td>
+        <td><input [(ngModel)]="user.isAdmin" class="inputstring" type="checkbox"></td>
+      </tr>
+    </table>
     <button (click)="save()" class="btn btn-success">Save</button>
-</tr>
-</table>
+</div>
