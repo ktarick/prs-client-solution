@@ -1,3 +1,46 @@
-<p>
-  user-edit works!
-</p>
+<div *ngIf="user">
+  <div>
+      <span class="pagetitle">Create New User</span>
+  </div>
+    <table class="table table-sm table-bordered" style="width:350px">
+        <tr>  
+        <td>Username</td>
+        <td><input [(ngModel)]="user.username" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td><input [(ngModel)]="user.password" class="inputstring" type="password"></td>
+      </tr>
+      <tr>
+        <td>First Name</td>
+        <td><input [(ngModel)]="user.firstname" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><input [(ngModel)]="user.lastname" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td><input [(ngModel)]="user.phone" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input [(ngModel)]="user.email" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Reviewer</td>
+        <td><input [(ngModel)]="user.isReviewer" class="inputstring" type="checkbox"></td>
+      </tr>
+      <tr>
+        <td>Admin</td>
+        <td><input [(ngModel)]="user.isAdmin" class="inputstring" type="checkbox"></td>
+      </tr>
+    </table>
+    <span><button (click)="edit()" class="btn btn-success">Update</button> | </span>
+    <span><button (click)="setVerifyT()" class="btn btn-warning">Delete</button></span>
+    <span *ngIf="verify" >
+      <span> | <button (click)="setVerifyF()" class="btn btn-secondary">Cancel Delete</button></span>
+      <span> | <button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
+    </span>
+    <p class="h3"> <a routerLink="/user/list">Back to User List</a></p>
+</div>

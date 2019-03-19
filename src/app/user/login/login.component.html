@@ -1,0 +1,15 @@
+<div class="loginform">
+  <table class="table">
+    <h4>User Login</h4>
+    <tr>
+      <td>User name:</td>
+      <td><input [(ngModel)]="username" type="text"></td>
+    </tr>
+    <tr>
+        <td>User name:</td>
+        <td><input [(ngModel)]="password" type="password"></td>
+    </tr>
+  </table>
+    <button (click)="login()" class="btn btn-primary">Login</button>
+    <span class="text-danger font-weight-bold">{{ message }}</span>
+</div>

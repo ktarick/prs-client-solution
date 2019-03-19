@@ -36,6 +36,14 @@
       <tbody>
       </tbody>
     </table>
-    <!-- <button (click)=`${url}/user/edit/` class="btn btn-success">Edit</button> -->
+    <span><button (click)="edit()" class="btn btn-success">Edit</button> | </span>
+    <span><button (click)="setVerifyT()" class="btn btn-warning">Delete</button></span>
+    <span *ngIf="verify" >
+      <span> | <button (click)="setVerifyF()" class="btn btn-secondary">Cancel Delete</button></span>
+      <span> | <button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
+    </span>
+    <div>
+      <a routerLink="/user/list">Back to User List</a>
+    </div>
   </div>
 </div>

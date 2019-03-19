@@ -5,7 +5,7 @@
     <table class="table table-sm table-bordered" style="width:350px">
         <tr>  
         <td>Username</td>
-        <td><input [(ngModel)]="user.unsername" class="inputstring" type="text"></td>
+        <td><input [(ngModel)]="user.username" class="inputstring" type="text"></td>
       </tr>
       <tr>
         <td>Password</td>
@@ -37,4 +37,5 @@
       </tr>
     </table>
     <button (click)="save()" class="btn btn-success">Save</button>
+    <p class="h3"> <a routerLink="/user/list">Back to User List</a></p>
 </div>
