@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+<div *ngIf="product">
+  <div>
+      <span class="pagetitle">Edit Product</span>
+  </div>
+    <table class="table table-sm table-bordered" style="width:350px">
+        <!--Add Drop DOWN to edit Products!  -->
+      <tr>  
+        <td>Part Number</td>
+        <td><input [(ngModel)]="product.partNumber" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Product Name</td>
+        <td><input [(ngModel)]="product.name" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td><input [(ngModel)]="product.price" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Unit</td>
+        <td><input [(ngModel)]="product.unit" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Photo Path</td>
+        <td><input [(ngModel)]="product.photoPath" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Active</td>
+        <td><input [(ngModel)]="product.active" class="inputstring" type="checkbox"></td>
+      </tr>
+    </table>
+    <span><button (click)="edit()" class="btn btn-success">Edit</button> | </span>
+    <span><button (click)="setVerifyT()" class="btn btn-warning">Delete</button></span>
+    <span *ngIf="verify" >
+      <span> | <button (click)="setVerifyF()" class="btn btn-secondary">Cancel Delete</button></span>
+      <span> | <button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
+    </span>
+    <div>
+      <a routerLink="/product/list">Back to Product List</a>
+    </div>
+</div>

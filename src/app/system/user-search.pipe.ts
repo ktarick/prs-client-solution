@@ -4,7 +4,7 @@ import { User } from '../user/user.class'
 @Pipe({
   name: 'search'
 })
-export class SearchPipe implements PipeTransform {
+export class UserSearchPipe implements PipeTransform {
 
   transform(users: User[], criteria: string): User[] {
     if(criteria == "")

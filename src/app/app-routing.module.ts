@@ -10,6 +10,11 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { LoginComponent } from './user/login/login.component';
 
+import { ProductCreateComponent } from './product/product-create/product-create.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+
 import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
@@ -25,10 +30,15 @@ const routes: Routes = [
   { path: 'user/edit/:id', component: UserEditComponent },
   { path: 'user/list', component: UserListComponent },
   
-  { path: 'vendors/create', component: VendorCreateComponent },
-  { path: 'vendors/detail/id', component: VendorDetailComponent },
-  { path: 'vendors/edit/id', component: VendorEditComponent},
-  { path: 'vendors/list', component: VendorListComponent },
+  { path: 'product/create', component: ProductCreateComponent },
+  { path: 'product/detail/:id', component: ProductDetailComponent},
+  { path: 'product/edit/:id', component: ProductEditComponent },
+  { path: 'product/list', component: ProductListComponent },
+
+  { path: 'vendor/create', component: VendorCreateComponent },
+  { path: 'vendor/detail/:id', component: VendorDetailComponent },
+  { path: 'vendor/edit/:id', component: VendorEditComponent},
+  { path: 'vendor/list', component: VendorListComponent },
   
   
   { path: 'home', component: HomeComponent },

@@ -1,20 +1,20 @@
 import { Component, OnInit, ɵSWITCH_VIEW_CONTAINER_REF_FACTORY__POST_R3__ } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {VendorService} from '../vendor.service';
-import {Vendor} from '../vendor.class';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product.service';
+import { Product } from '../product.class';
 import { SystemService } from '../../system/system.service';
 
 @Component({
-  selector: 'app-vendor-detail',
-  templateUrl: './vendor-detail.component.html',
-  styleUrls: ['./vendor-detail.component.css']
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.css']
 })
-export class VendorDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit {
 
-  vendor: Vendor;
+  product: Product;
   verify: boolean;
 
-  constructor(private vendorscvr: VendorService,
+  constructor(private productscvr: ProductService,
     private route: ActivatedRoute,
     private router: Router,
     private syssvc: SystemService
@@ -23,10 +23,10 @@ export class VendorDetailComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.params.id;
 
-    this.vendorscvr.get(id)
+    this.productscvr.get(id)
       .subscribe(respond => {
         console.log(respond);
-        this.vendor = respond;
+        this.product = respond;
         });
 
     let verify = false;    
@@ -40,11 +40,11 @@ export class VendorDetailComponent implements OnInit {
   }
 
   edit():void{
-    this.vendorscvr.change(this.vendor)
+    this.productscvr.change(this.product)
     .subscribe(
       resp => { //success
         console.log(resp);
-        this.router.navigateByUrl(`/vendor/edit/${this.vendor.id}`);
+        this.router.navigateByUrl(`/product/edit/${this.product.id}`);
       },
       err =>{ //error
         console.error(err);
@@ -53,14 +53,14 @@ export class VendorDetailComponent implements OnInit {
   }
 
   delete():void{
-    this.vendorscvr.remove(this.vendor)
+    this.productscvr.remove(this.product)
     .subscribe(
       resp => { //sucess
-      console.log("Vendor Delete Successful" ,resp);
-      this.router.navigateByUrl('vendor/list')
+      console.log("Product Delete Successful" ,resp);
+      this.router.navigateByUrl('product/list')
     },
     err =>{
-      console.error("Vendor Delete Failed!")
+      console.error("Product Delete Failed!")
     }
     );
   }

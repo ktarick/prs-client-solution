@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div *ngIf="user">
     <div>
-      <span class="pagetitle">Detail</span>
+      <span class="pagetitle">User Detail</span>
     </div>
     <div>
     <table class="table table-sm table-hover table-bordered" style="width:400px">
@@ -25,13 +25,13 @@
           <td>Email</td><td>{{user.email}}</td>
         </tr>
         <tr>  
-          <td>Reviewer?</td><td>{{user.isReviewer ? "Yes" : "No"}}</td>
+          <td>Reviewer?</td><td>{{user.isReviewer | booldisp}}</td>
         </tr>
         <tr>  
-          <td>Admin?</td><td>{{user.isAdmin ? "Yes" : "No"}} </td>
+          <td>Admin?</td><td>{{user.isAdmin | booldisp}} </td>
         </tr>
         <tr>  
-          <td>Active</td><td>{{user.active ? "Yes" : "No"}}</td>
+          <td>Active</td><td>{{user.active | booldisp}}</td>
         </tr>  
       </thead>
       <tbody>

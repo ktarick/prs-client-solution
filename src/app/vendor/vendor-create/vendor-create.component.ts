@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{Router} from '@angular/router';
-import {VendorService} from '../vendor.service';
-import {Vendor} from '../vendor.class';
+import { Router } from '@angular/router';
+import { VendorService } from '../vendor.service';
+import { Vendor } from '../vendor.class';
 import { SystemService } from '../../system/system.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class VendorCreateComponent implements OnInit {
     .subscribe(
       respond => { //success
         console.log(respond);
-        this.router.navigateByUrl('/vendors/list');
+        this.router.navigateByUrl('/vendor/list');
       },
       err =>{ //error
         console.error(err);

@@ -1,9 +1,9 @@
 <app-menu></app-menu>
 <div>
   <div>
-    <span class="pagetitle">vendor List</span>
-    <span class="create"> | <a routerLink='/vendors/create'>Create</a></span>
-    <!-- <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Search"></span> -->
+    <span class="pagetitle">Vendor List</span>
+    <span class="create"> | <a routerLink='/vendor/create'>Create</a></span>
+    <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Search"></span>
   </div>
   <table class="table table-sm table-hover table-bordered">
     <thead>
@@ -19,17 +19,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vendor of vendors">
+      <tr *ngFor="let vendor of vendors  | search:searchCriteria" class="coldetail">
         <td>{{vendor.code}}</td>
         <td>{{vendor.name}}</td>
         <td>{{vendor.address}} {{vendor.city}} {{vendor.state}} {{vendor.zip}}</td>
         <td>{{vendor.phone}}</td>
         <td>{{vendor.email}}</td>
-        <td class="text-center">{{vendor.isPrefered ? "Yes" : "No"}}</td>
-        <td class="text-center">{{vendor.active ? "Yes" : "No"}} </td>
+        <td class="text-center">{{vendor.isPrefered | booldisp}}</td>
+        <td class="text-center">{{vendor.active | booldisp}} </td>
         <td>
-          <a routerLink='/vendors/detail/{{vendor.id}}'>Detail |</a>
-          <a routerLink='/vendors/edit/{{vendor.id}}'> Edit</a>
+          <a routerLink='/vendor/detail/{{vendor.id}}'>Detail |</a>
+          <a routerLink='/vendor/edit/{{vendor.id}}'> Edit</a>
         </td>
       </tr>
     </tbody>

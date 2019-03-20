@@ -1,37 +1,37 @@
 <app-menu></app-menu>
-<div *ngIf="vendor">
+<div *ngIf="product">
     <div>
-      <span class="pagetitle">Vendor Detail</span>
+      <span class="pagetitle">Product Detail</span>
     </div>
     <div>
     <table class="table table-sm table-hover table-bordered" style="width:400px">
       <thead>
         <tr>
-          <td>Vendor Code</td><td>{{vendor.code}}</td>
+          <td>Id</td><td>{{product.id}}</td>
+        </tr>
+        <tr>
+          <td>Vendor Id</td><td>{{product.vendor.id}}</td>
         </tr>
         <tr>  
-          <td>Vendor Name</td><td>{{vendor.name}}</td>
+          <td>Vendor Name</td><td>{{product.vendor.name}}</td>
         </tr>
         <tr>  
-          <td>Address</td><td>{{vendor.address}}</td>
+          <td>Part Number</td><td>{{product.partNumber}}</td>
         </tr>
         <tr>  
-          <td>City</td><td>{{vendor.city}}</td>
+          <td>Part Name</td><td>{{product.name}}</td>
         </tr>
         <tr>  
-          <td>State</td><td>{{vendor.state}}</td>
+          <td>Price</td><td>{{product.price}}</td>
         </tr>
         <tr>  
-          <td>Zip</td><td>{{vendor.zip}}</td>
+          <td>Unit</td><td>{{product.unit}}</td>
         </tr>
         <tr>  
-          <td>Phone</td><td>{{vendor.phone}}</td>
+          <td>Photopath</td><td>{{product.photoPath}}</td>
         </tr>
         <tr>  
-          <td>email</td><td>{{vendor.email}}</td>
-        </tr>
-        <tr>  
-          <td>Prefered?</td><td>{{vendor.isPrefered | booldisp}}</td>
+          <td>Active</td><td>{{product.active | booldisp}}</td>
         </tr>
       </thead>
     </table>

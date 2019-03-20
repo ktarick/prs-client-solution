@@ -11,7 +11,7 @@ import { SystemService } from '../../system/system.service';
 export class VendorListComponent implements OnInit {
 
   vendors: Vendor[];
-  // searchCriteria: string = "";
+  searchCriteria: string = "";
 
   constructor(
     private vendorsvc: VendorService, 
