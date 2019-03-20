@@ -3,7 +3,7 @@
   <div>
     <span class="pagetitle">Product List</span>
     <span class="create"> | <a routerLink='/product/create'>Create</a></span>
-    <!-- <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Search"></span> -->
+    <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Search"></span>
   </div>
   <table class="table table-sm table-hover table-bordered">
     <thead>
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products" > <!--add search pipe in this tag-->
+      <tr *ngFor="let product of products | search:searchCriteria" class="coldetail">
         <td><a routerLink = '/vendor/detail/{{product.vendor.id}}'>{{ product.vendor.name }}</a></td>
         <td>{{ product.partNumber }}</td>
         <td>{{ product.name }}</td>

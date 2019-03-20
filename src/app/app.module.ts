@@ -30,6 +30,7 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { VendorSearchPipe } from './system/vendor-search.pipe';
+import { ProductSearchPipe } from './system/product-search.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { VendorSearchPipe } from './system/vendor-search.pipe';
     ProductCreateComponent,
     ProductDetailComponent,
     ProductEditComponent,
-    VendorSearchPipe
+    VendorSearchPipe,
+    ProductSearchPipe
   ],
   imports: [
     BrowserModule,

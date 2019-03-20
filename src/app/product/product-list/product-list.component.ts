@@ -11,7 +11,7 @@ import { SystemService } from '../../system/system.service';
 export class ProductListComponent implements OnInit {
 
   products: Product[];
-  // searchCriteria: string = ""
+  searchCriteria: string = ""
 
   constructor(
     private productsvc: ProductService,
