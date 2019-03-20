@@ -1,0 +1,51 @@
+<app-menu></app-menu>
+<div *ngIf="vendor">
+    <div>
+      <span class="pagetitle">Detail</span>
+    </div>
+    <div>
+    <table class="table table-sm table-hover table-bordered" style="width:400px">
+      <thead>
+        <tr>
+          <td>Id</td><td>{{vendor.id}}</td>
+        </tr>
+        <tr>
+          <td>Vendor Code</td><td>{{vendor.code}}</td>
+        </tr>
+        <tr>  
+          <td>Vendor Name</td><td>{{vendor.name}}</td>
+        </tr>
+        <tr>  
+          <td>Address</td><td>{{vendor.address}}</td>
+        </tr>
+        <tr>  
+          <td>City</td><td>{{vendor.city}}</td>
+        </tr>
+        <tr>  
+          <td>State</td><td>{{vendor.state}}</td>
+        </tr>
+        <tr>  
+          <td>Zip</td><td>{{vendor.zip}}</td>
+        </tr>
+        <tr>  
+          <td>Phone</td><td>{{vendor.phone}}</td>
+        </tr>
+        <tr>  
+          <td>email</td><td>{{vendor.email}}</td>
+        </tr>
+        <tr>  
+          <td>Prefered?</td><td>{{vendor.isPrefered ? "Yes" : "No"}}</td>
+        </tr>
+      </thead>
+    </table>
+    <span><button (click)="edit()" class="btn btn-success">Edit</button> | </span>
+    <span><button (click)="setVerifyT()" class="btn btn-warning">Delete</button></span>
+    <span *ngIf="verify" >
+      <span> | <button (click)="setVerifyF()" class="btn btn-secondary">Cancel Delete</button></span>
+      <span> | <button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
+    </span>
+    <div>
+      <a routerLink="/vendors/list">Back to Vendor List</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<app-menu></app-menu>
+<div>
+  <div>
+      <span class="pagetitle">Create New Vendor</span>
+  </div>
+    <table class="table table-sm table-bordered" style="width:350px">
+        <tr>  
+        <td>Vendor Code</td>
+        <td><input [(ngModel)]="vendor.code" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>name</td>
+        <td><input [(ngModel)]="vendor.name" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><input [(ngModel)]="vendor.address" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td><input [(ngModel)]="vendor.city" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td><input [(ngModel)]="vendor.state" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Zip</td>
+        <td><input [(ngModel)]="vendor.zip" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td><input [(ngModel)]="vendor.phone" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input [(ngModel)]="vendor.email" class="inputstring" type="text"></td>
+      </tr>
+      <tr>
+        <td>Prefered</td>
+        <td><input [(ngModel)]="vendor.isPrefered" class="inputstring" type="checkbox"></td>
+      </tr>
+    </table>
+    <button (click)="save()" class="btn btn-success">Update</button>
+    <p> 
+      <a routerLink="/vendors/list">Back to Vendor List</a>
+    </p>
+</div>
