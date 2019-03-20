@@ -5,15 +5,12 @@
   </div>
     <table class="table table-sm table-bordered" style="width:350px">
       <tr>  
-        <td>Vendor Id</td>
+        <td>Vendor</td>
           <td>
-            <select>
-              <option value="vendor.name">Amazon</option>
-              <option value="vendor.name">P&G</option>
-              <option value="vendor.name">Chase</option>
+            <select [(ngModel)] = "product.vendorId">
+              <option *ngFor = "let vendor of vendors" [ngValue] = "vendor.id">{{ vendor.name }}</option>
             </select>
         </td>
-        <!-- <input [(ngModel)]="product.vendorId" class="inputstring" type="text"> -->
       </tr>  
       <tr>  
         <td>Part Number</td>

@@ -3,6 +3,8 @@ import { ProductService } from '../product.service';
 import { Product } from '../product.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SystemService } from '../../system/system.service';
+import { Vendor } from '../../vendor/vendor.class';
+import { VendorService } from '../../vendor/vendor.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -13,6 +15,7 @@ export class ProductEditComponent implements OnInit {
 
   product: Product;
   verify: boolean;
+  vendors: Vendor[];
 
   edit():void{
     this.productscvr.change(this.product)
@@ -44,11 +47,17 @@ export class ProductEditComponent implements OnInit {
     private productscvr: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    private syssvc: SystemService
+    private syssvc: SystemService,
+    private vendorscvr: VendorService
     ) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params.id;
+
+    this.vendorscvr.list()
+      .subscribe (resp =>{
+        this.vendors = resp;
+      })
 
     this.productscvr.get(id)
       .subscribe(respond => {
@@ -58,7 +67,7 @@ export class ProductEditComponent implements OnInit {
         err => {
           console.error(err);
         });
-        let verify = false;    
+        let verify = false;
       }
       
       setVerifyT():void{
