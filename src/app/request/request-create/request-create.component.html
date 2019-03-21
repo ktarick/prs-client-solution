@@ -46,12 +46,7 @@
         <td><input [(ngModel)]="request.active" class="inputstring" type="checkbox"></td>
       </tr>
     </table>
-    <span><button (click)="save()" class="btn btn-success">Save</button> | </span>
-    <span><button (click)="setVerifyT()" class="btn btn-warning">Delete</button></span>
-    <span *ngIf="verify" >
-      <span> | <button (click)="setVerifyF()" class="btn btn-secondary">Cancel Delete</button></span>
-      <span> | <button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
-    </span>
+    <span><button (click)="save()" class="btn btn-success">Save</button></span>
     <div>
       <a routerLink="/request/list">Back to Request List</a>
     </div>

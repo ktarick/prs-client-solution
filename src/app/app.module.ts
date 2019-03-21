@@ -16,6 +16,10 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 
+import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
+import { RequestlineListComponent } from './requestline/requestline-list/requestline-list.component';
+
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
@@ -35,10 +39,11 @@ import { MenuItemComponent } from './system/menu-item/menu-item.component';
 
 import { BooldispPipe } from './system/booldisp.pipe';
 
-import { UserSearchPipe } from './system/user-search.pipe';
-import { VendorSearchPipe } from './system/vendor-search.pipe';
 import { ProductSearchPipe } from './system/product-search.pipe';
 import { RequestSearchPipe } from './system/request-search.pipe';
+import { SortPipe } from './system/sort.pipe';
+import { UserSearchPipe } from './system/user-search.pipe';
+import { VendorSearchPipe } from './system/vendor-search.pipe';
 
 @NgModule({
   declarations: [
@@ -68,7 +73,11 @@ import { RequestSearchPipe } from './system/request-search.pipe';
     RequestDetailComponent,
     RequestEditComponent,
     RequestCreateComponent,
-    RequestSearchPipe
+    RequestSearchPipe,
+    SortPipe,
+    RequestlineCreateComponent,
+    RequestlineEditComponent,
+    RequestlineListComponent
   ],
   imports: [
     BrowserModule,

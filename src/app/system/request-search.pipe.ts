@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Request } from '../request/request.class'
-import { User } from '../user/user.class'
 
 @Pipe({
   name: 'search'
@@ -17,6 +16,22 @@ export class RequestSearchPipe implements PipeTransform {
         continue;
       }
       if(request.justification.toLowerCase().includes(criteria.toLowerCase())){
+        arrOut.push(request);
+        continue;
+      }
+      if(request.rejectionReason != null && request.rejectionReason.toLowerCase().includes(criteria.toLowerCase())){
+        arrOut.push(request);
+        continue;
+      }
+      if(request.deliveryMode != null && request.deliveryMode.toLowerCase().includes(criteria.toLowerCase())){
+        arrOut.push(request);
+        continue;
+      }
+      if(request.submittedDate.toLowerCase().includes(criteria.toLowerCase())){
+        arrOut.push(request);
+        continue;
+      }
+      if(request.status.toLowerCase().includes(criteria.toLowerCase())){
         arrOut.push(request);
         continue;
       }

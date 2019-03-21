@@ -10,9 +10,9 @@ export class User {
     isAdmin: boolean;
     active: boolean;
 
-    constructor(username:string, password:string, 
-                firstname:string, lastname:string, phone:string, 
-                email:string, isReviewer:boolean = false, isAdmin:boolean = false,
+    constructor(username:string = "", password:string = "", 
+                firstname:string = "", lastname:string = "", phone:string = "", 
+                email:string = "", isReviewer:boolean = false, isAdmin:boolean = false,
                 active:boolean = false)
     {
         this.id = 0;

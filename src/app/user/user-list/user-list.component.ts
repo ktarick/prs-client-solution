@@ -8,15 +8,27 @@ import { SystemService } from '../../system/system.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
+
 export class UserListComponent implements OnInit {
 
   users: User[];
   searchCriteria: string = "";
+  sortCriteria: string = "username"
+  sortOrder: string = "asc";
+
+  sortBy(column: string): void { 
+    if(this.sortCriteria === column){
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc"}
+    else{
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
 
   constructor(
     private usersvc: UserService,
     private syssvc: SystemService
-    ) { }
+    ){}
 
   ngOnInit() {
     this.usersvc.list()

@@ -9,9 +9,10 @@ export class Product{
     active: boolean;
    
     constructor(
-        partNumber: string, name: string, 
-        price: number =0, unit: string = "",
-        photopath: string = "", active: boolean = false)
+        partNumber: string = "", name: string = "", 
+        price: number = 0, unit: string = "Each",
+        photopath: string = "", active: boolean = false
+        )
         {
             this.id =0;
             this.vendorId =0;
@@ -21,6 +22,5 @@ export class Product{
             this.unit = unit;
             this.photopath = photopath;
             this.active = active;
-
         }
 }

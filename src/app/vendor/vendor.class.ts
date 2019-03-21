@@ -12,10 +12,10 @@ export class Vendor{
     active: boolean;
 
 constructor(
-    code: string,
-    name: string, address: string, city: string,
-    state: string, zip: string, phone: string,
-    email: string, isPrefered: boolean = false, active: boolean = false)
+    code: string = "",
+    name: string = "", address: string = "", city: string = "",
+    state: string = "", zip: string = "", phone: string = "",
+    email: string = "", isPrefered: boolean = false, active: boolean = false)
     {
         this.id = 0;
         this.code = code;

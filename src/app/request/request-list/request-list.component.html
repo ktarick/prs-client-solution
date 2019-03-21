@@ -2,7 +2,7 @@
 <div>
   <div>
     <span class="pagetitle">Request List</span>
-    <span class="create"> | <a routerLink='/request/create'>Create</a></span>
+    <span class="create"> | <a routerLink='/requestline/create/'>Create</a></span>
     <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Request Search" class=""></span>
   </div>
   <table class="table table-sm table-hover table-bordered">
@@ -31,7 +31,8 @@
         <td>{{ request.total }}</td>
         <td>
           <a routerLink = '/request/detail/{{request.id}}'> Detail |</a>
-          <a routerLink = '/request/edit/{{request.id}}'> Edit</a>
+          <a routerLink = '/request/edit/{{request.id}}'> Edit |</a>
+          <a routerLink = '/requestline/list/{{request.id}}'> Lines</a>
         </td>
       </tr>
     </tbody>

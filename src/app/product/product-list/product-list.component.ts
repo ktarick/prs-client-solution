@@ -12,6 +12,17 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
   searchCriteria: string = ""
+  sortCriteria: string = "partNumber"
+  sortOrder: string = "asc";
+
+  sortBy(column: string): void { 
+    if(this.sortCriteria === column){
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc"}
+    else{
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
 
   constructor(
     private productsvc: ProductService,
