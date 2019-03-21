@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../../request/request.service';
 import { Request } from '../../request/request.class';
 import { SystemService } from '../../system/system.service';
-import{Router, ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { Requestline } from '../requestline.class';
+import { RequestlineService } from '../../requestline/requestline.service';
 
 @Component({
   selector: 'app-requestline-list',
@@ -29,8 +30,8 @@ export class RequestlineListComponent implements OnInit {
     );
   }
 
-  delete():void{
-    this.requestsvc.remove(this.request)
+  delete(requestline: Requestline):void{
+    this.requestlinesvc.remove(requestline)
     .subscribe(
       resp => { //sucess
       console.log("User Delete Successful" ,resp);
@@ -44,6 +45,7 @@ export class RequestlineListComponent implements OnInit {
 
   constructor(
     private requestsvc: RequestService,
+    private requestlinesvc: RequestlineService,
     private router: Router,
     private route: ActivatedRoute,
     private syssvc: SystemService 

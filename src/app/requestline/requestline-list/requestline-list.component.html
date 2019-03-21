@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div>
   <span class="pagetitle">Requestline List</span>
-  <span *ngIf="request" class="create"> | <a routerLink='/requestline/create/{{requestId.userId}}'>Create</a></span>
+  <span *ngIf="request" class="create"> | <a routerLink='/requestline/create/{{request.id}}'>Create</a></span>
 </div>
 <div>
 <table *ngIf="request" class="table table-sm table-hover table-bordered">
@@ -36,9 +36,9 @@
       <td>{{ line.quantity }}</td>
       <td>{{ line.product.price * line.quantity }}</td>
       <td>
-        <a>Edit |</a>
-        <a> Delete</a>
-      </td>
+          <a routerLink="/requestline/edit/{{request.id}}">Edit |</a>
+          <span><button (click)="delete(line)" class="btn btn-danger">Verify Delete</button></span>
+        </td>
     </tr>
   </table>
 </div>

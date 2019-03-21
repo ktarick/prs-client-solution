@@ -19,7 +19,7 @@ export class RequestlineService {
     return this.http.get(`${url}/requests/${id}`) as Observable<Requestline>;
   }
   remove(requestline: Requestline): Observable<any> {
-    return this.http.delete(`${url}/requests/${requestline.id}`) as Observable<any>;
+    return this.http.delete(`${url}/requestlines/${requestline.id}`) as Observable<any>;
   }
   list(): Observable<Requestline[]> {
     return this.http.get(`${url}/requests`) as Observable<Requestline[]>;
