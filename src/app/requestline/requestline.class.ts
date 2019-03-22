@@ -14,7 +14,7 @@ export class Requestline{
     constructor(
     requestId: number = 0,
     productId: number = 0,
-    quantity: number = 0
+    quantity: number = 1
     ){
         this.requestId = requestId;
         this.productId = productId;

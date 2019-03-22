@@ -4,9 +4,9 @@
   <div>
       <span class="pagetitle">Create New Request</span>
   </div>
-    <table class="table table-sm table-bordered" style="width:350px">
+    <table class="table table-sm table-bordered" style="width:400px">
         <tr>  
-            <td>User</td>
+            <td>User *</td>
               <td>
                 <select [(ngModel)] = "request.userId">
                   <option *ngFor = "let user of users" [ngValue] = "user.id">{{ user.username }}</option>
@@ -30,7 +30,7 @@
         <td><input [(ngModel)]="request.deliveryMode" class="inputstring" type="text"></td>
       </tr>
       <tr>
-        <td>Date Submitted</td>
+        <td>Date Submitted *</td>
         <td><input [(ngModel)]="request.submittedDate" class="inputstring" type="text"></td>
       </tr>
       <tr>
@@ -38,7 +38,7 @@
         <td><input [(ngModel)]="request.status" class="inputstring" type="text"></td>
       </tr>
       <tr>
-        <td>Total</td>
+        <td>Total *</td>
         <td><input [(ngModel)]="request.total" class="inputstring" type="text"></td>
       </tr>
       <tr>

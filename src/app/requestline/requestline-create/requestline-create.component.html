@@ -1,15 +1,19 @@
 <app-menu></app-menu>
-<div>
+<div *ngIf="requestline">
   <div>
       <span class="pagetitle">Create New Requestline</span>
   </div>
-    <table class="table table-sm table-bordered" style="width:350px">  
+    <table class="table table-sm table-bordered" style="width:400px">
+      <tr>  
+        <td>Product Name *</td>
+          <td>
+            <select [(ngModel)] = "requestline.productId">
+              <option *ngFor = "let product of products" [ngValue] = "product.id">{{ product.name }}</option>
+            </select>
+          </td>
+        </tr>
       <tr>
-        <td>Product</td>
-        <td><input [(ngModel)]="requestline.productId" class="inputstring" type="text"></td>
-      </tr>
-      <tr>
-        <td>Quantit</td>
+        <td>Quantity</td>
         <td><input [(ngModel)]="requestline.quantity" class="inputstring" type="text"></td>
       </tr>
     </table>

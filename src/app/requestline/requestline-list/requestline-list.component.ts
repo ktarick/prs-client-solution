@@ -34,11 +34,11 @@ export class RequestlineListComponent implements OnInit {
     this.requestlinesvc.remove(requestline)
     .subscribe(
       resp => { //sucess
-      console.log("User Delete Successful" ,resp);
-      this.router.navigateByUrl('request/list')
+      console.log("requestline Delete Successful" ,resp);
+      this.router.navigateByUrl('/request/list')
     },
     err =>{
-      console.error("User Delete Failed!")
+      console.error("Requestline Delete Failed!")
     }
     );
   }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RequestlineService } from '../requestline.service';
 import { Requestline } from '../requestline.class';
 import { SystemService } from '../../system/system.service';
-import { User } from '../../user/user.class';
-import { UserService } from '../../user/user.service';
+import { Product } from '../../product/product.class';
+import { ProductService } from '../../product/product.service';
+import { RequestService } from '../../request/request.service';
 
 @Component({
   selector: 'app-requestline-edit',
@@ -13,34 +14,67 @@ import { UserService } from '../../user/user.service';
 })
 export class RequestlineEditComponent implements OnInit {
 
-  requestline: Requestline = new Requestline();
-  users: User[];
+  requestlines: Requestline = new Requestline();
+  requestline: Requestline;
+  products: Product[];
+  verify: boolean;
 
   update():void{
-    this.requestlinescvr.change(this.requestline)
+    this.requestlinesvc.change(this.requestline)
     .subscribe(
       respond => { //success
         console.log(respond);
-        this.router.navigateByUrl('/requestline/list');
+        this.router.navigateByUrl('/request/list');
       },
       err =>{ //error
         console.error(err);
       }
     );
   }
-
+  
+  delete():void{
+    this.requestlinesvc.remove(this.requestline)
+    .subscribe(
+      resp => { //sucess
+      console.log("User Delete Successful" ,resp);
+      this.router.navigateByUrl('user/list')
+    },
+    err =>{
+      console.error("User Delete Failed!")
+    }
+    );
+  }
   constructor(
-    private requestlinescvr: RequestlineService,
+    private requestsvc: RequestService,
+    private requestlinesvc: RequestlineService,
     private router: Router,
-    private userscvr: UserService,
+    private route: ActivatedRoute,
+    private productsvc: ProductService,
     private syssvc: SystemService
   ) { }
 
   ngOnInit() {
-    this.userscvr.list()
+    let id = this.route.snapshot.params.id;
+    // = this.requestline.id
+    this.productsvc.list()
       .subscribe (resp =>{
-        this.users = resp;
-      })
+        this.products = resp;
+      });
+      
+    this.requestlinesvc.get(id)
+      .subscribe(respond => {
+        console.log(respond);
+      this.requestline = respond;
+        },
+      err => {
+          console.error(err);
+      });  
+      let verify = false;
+  }           
+  setVerifyT():void{
+    this.verify = true;
   }
-
+  setVerifyF():void{
+    this.verify = false;
+  }
 }

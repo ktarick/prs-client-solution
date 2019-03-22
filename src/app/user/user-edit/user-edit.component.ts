@@ -66,6 +66,5 @@ export class UserEditComponent implements OnInit {
       }
       setVerifyF():void{
         this.verify = false;
-      
-  }
+      }
 }

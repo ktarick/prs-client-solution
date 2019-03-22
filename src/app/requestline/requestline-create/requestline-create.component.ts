@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RequestlineService } from '../requestline.service';
 import { Requestline } from '../requestline.class';
 import { SystemService } from '../../system/system.service';
-import { User } from '../../user/user.class';
-import { UserService } from '../../user/user.service';
+import { Product } from '../../product/product.class';
+import { ProductService } from '../../product/product.service';
 
 @Component({
   selector: 'app-requestline-create',
@@ -14,14 +14,18 @@ import { UserService } from '../../user/user.service';
 export class RequestlineCreateComponent implements OnInit {
 
   requestline: Requestline = new Requestline();
-  users: User[];
+  requestId: number;
+  products: Product[];
+
 
   save():void{
-    this.requestlinescvr.create(this.requestline)
+    this.requestline.requestId = this.requestId;
+      console.log(this.requestline)
+    this.requestlinesvc.create(this.requestline)
     .subscribe(
       respond => { //success
         console.log(respond);
-        this.router.navigateByUrl('/requestline/list');
+        this.router.navigateByUrl('request/list');
       },
       err =>{ //error
         console.error(err);
@@ -30,16 +34,19 @@ export class RequestlineCreateComponent implements OnInit {
   }
 
   constructor(
-    private requestlinescvr: RequestlineService,
+    private requestlinesvc: RequestlineService,
     private router: Router,
-    private userscvr: UserService,
+    private route: ActivatedRoute,
+    private productsvc: ProductService,
     private syssvc: SystemService
   ) { }
 
   ngOnInit() {
-    this.userscvr.list()
+    this.requestId = this.route.snapshot.params.id;
+    
+    this.productsvc.list()
       .subscribe (resp =>{
-        this.users = resp;
+        this.products = resp;
       })
   }
 
