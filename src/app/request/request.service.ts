@@ -8,7 +8,7 @@ const url = 'http://localhost:61260/api'
 @Injectable({
   providedIn: 'root'
 })
-export class RequestService {
+  export class RequestService {
   change(request: Request): Observable<any> {
     return this.http.put(`${url}/requests/${request.id}`, request) as Observable<any>;
   }
@@ -23,6 +23,9 @@ export class RequestService {
   }
   list(): Observable<Request[]> {
     return this.http.get(`${url}/requests`) as Observable<Request[]>;
+  }
+  listReview(): Observable<Request[]> {
+    return this.http.get(`${url}/requests/review`) as Observable<Request[]>;
   }
   constructor(private http: HttpClient) { }
 }

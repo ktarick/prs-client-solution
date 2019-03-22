@@ -5,6 +5,7 @@ import { Requestline } from '../requestline.class';
 import { SystemService } from '../../system/system.service';
 import { Product } from '../../product/product.class';
 import { ProductService } from '../../product/product.service';
+import { Request } from '../../request/request.class';
 import { RequestService } from '../../request/request.service';
 
 @Component({
@@ -14,17 +15,19 @@ import { RequestService } from '../../request/request.service';
 })
 export class RequestlineEditComponent implements OnInit {
 
+  request: Request;
+  requests: Request[]; 
   requestlines: Requestline = new Requestline();
   requestline: Requestline;
   products: Product[];
   verify: boolean;
-
+  
   update():void{
     this.requestlinesvc.change(this.requestline)
     .subscribe(
       respond => { //success
         console.log(respond);
-        this.router.navigateByUrl('/request/list');
+        this.router.navigateByUrl('/requestline/list/{{this.product.requestId}}');
       },
       err =>{ //error
         console.error(err);
@@ -60,6 +63,11 @@ export class RequestlineEditComponent implements OnInit {
       .subscribe (resp =>{
         this.products = resp;
       });
+
+    // this.requestsvc.list()
+    //   .subscribe (resp =>{
+    //     this.requests = resp;
+    //   })  
       
     this.requestlinesvc.get(id)
       .subscribe(respond => {

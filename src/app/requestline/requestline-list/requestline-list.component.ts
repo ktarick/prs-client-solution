@@ -18,29 +18,26 @@ export class RequestlineListComponent implements OnInit {
   requestline: Requestline;
   searchCriteria: string = "";
   
-  get():void{
-    this.requestsvc.change(this.request)
-    .subscribe(
-      resp => { //success
-        this.router.navigateByUrl(`/request/list/{{ request.id }}`);
-      },
-      err =>{ //error
-        console.error(err);
+  refresh():void{
+    console.log("refresh()");
+    this.requestsvc.get(this.request.id.toString())
+      .subscribe(
+        resp => {
+          this.request = resp; 
+          console.log("after refresh()");
+        });
       }
-    );
-  }
 
   delete(requestline: Requestline):void{
     this.requestlinesvc.remove(requestline)
     .subscribe(
       resp => { //sucess
-      console.log("requestline Delete Successful" ,resp);
-      this.router.navigateByUrl('/request/list')
+      console.log("Requestline Delete Successful" ,resp);
+      this.refresh();
     },
     err =>{
       console.error("Requestline Delete Failed!")
-    }
-    );
+    });
   }
 
   constructor(

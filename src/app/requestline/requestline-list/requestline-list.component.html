@@ -4,24 +4,24 @@
   <span *ngIf="request" class="create"> | <a routerLink='/requestline/create/{{request.id}}'>Create</a></span>
 </div>
 <div>
-<table *ngIf="request" class="table table-sm table-hover table-bordered">
-  <thead>
-    <tr>
+  <table *ngIf="request" class="table table-sm table-hover table-bordered">
+    <thead>
+      <tr>
         <td>Description</td>
         <td>Status</td>
         <td>Total</td>
         <td>User</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ request.description }}</td>
-      <td>{{ request.status }}</td>
-      <td>{{ request.total }}</td>
-      <td>{{ request.userId }}</td>
       </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ request.description }}</td>
+        <td>{{ request.status }}</td>
+        <td>{{ request.total }}</td>
+        <td>{{ request.userId }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <div>
   <table *ngIf="request" class="table table-sm table-bordered">
@@ -36,9 +36,9 @@
       <td>{{ line.quantity }}</td>
       <td>{{ line.product.price * line.quantity }}</td>
       <td>
-          <a routerLink="/requestline/edit/{{line.id}}">Edit |</a>
-          <a routerLink="" (click)="delete(line)"> Delete</a>
-        </td>
+        <a routerLink="/requestline/edit/{{line.id}}">Edit |</a>
+        <button class="btn btn-link" (click)="delete(line)"> Delete</button>
+      </td>
     </tr>
   </table>
 </div>

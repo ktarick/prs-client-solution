@@ -13,7 +13,7 @@ export class Request{
     constructor(
         description:string = "", justification:string = "",
         rejectionReason:string = "", deliveryMode: string = "",
-        submittedDate: string = "", status: string = "",
+        submittedDate: string = "", status: string = "New",
         total: number = 0, active: boolean = false
         )
         {

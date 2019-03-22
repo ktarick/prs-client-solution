@@ -15,6 +15,7 @@ import { RequestListComponent } from './request/request-list/request-list.compon
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { ReviewComponent } from './request/review/review.component';
 
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
@@ -44,6 +45,7 @@ import { RequestSearchPipe } from './system/request-search.pipe';
 import { SortPipe } from './system/sort.pipe';
 import { UserSearchPipe } from './system/user-search.pipe';
 import { VendorSearchPipe } from './system/vendor-search.pipe';
+
 
 @NgModule({
   declarations: [
@@ -77,7 +79,8 @@ import { VendorSearchPipe } from './system/vendor-search.pipe';
     SortPipe,
     RequestlineCreateComponent,
     RequestlineEditComponent,
-    RequestlineListComponent
+    RequestlineListComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

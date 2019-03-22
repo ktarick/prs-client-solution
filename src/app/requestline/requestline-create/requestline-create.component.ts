@@ -17,14 +17,13 @@ export class RequestlineCreateComponent implements OnInit {
   requestId: number;
   products: Product[];
 
-
   save():void{
     this.requestline.requestId = this.requestId;
       console.log(this.requestline)
     this.requestlinesvc.create(this.requestline)
     .subscribe(
-      respond => { //success
-        console.log(respond);
+      resp => { //success
+        console.log(resp);
         this.router.navigateByUrl('request/list');
       },
       err =>{ //error
