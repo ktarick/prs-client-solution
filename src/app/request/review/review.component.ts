@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-review',
@@ -10,17 +11,27 @@ import { Request } from '../request.class';
 export class ReviewComponent implements OnInit {
 
   requests: Request[];
+  searchCriteria: string = "";
+  sortCriteria: string = "username";
+  sortOrder: string = "asc";
 
+  sortBy(column: string): void{
+    if(this.sortCriteria === column){
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+    }else{
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
 
-  constructor(
-    private requestsvc: RequestService,
-  ) { }
+  constructor(private resrvc: RequestService,
+    private syssvc: SystemService) { }
 
-  ngOnInit() {
-    this.requestsvc.listReview()
-      .subscribe(resp =>{
-        console.log(resp);
-        this.requests = resp;
-      })
+    ngOnInit() {
+    this.resrvc.listReview()
+      .subscribe(respond => {
+        console.log(respond);
+        this.requests = respond;
+      });
   }
 }

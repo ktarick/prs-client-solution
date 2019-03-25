@@ -9,6 +9,7 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestListComponent } from './request/request-list/request-list.component';
 import { ReviewComponent } from './request/review/review.component';
+import { ReviewListComponent } from './request/review-list/review-list.component';
 
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
@@ -31,7 +32,7 @@ import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component'
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home',pathMatch: 'full'},  // first route always
+  { path: '', redirectTo: '/login',pathMatch: 'full'},  // first route always
   
   { path: 'login',                  component: LoginComponent },
 
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'request/edit/:id',       component: RequestEditComponent },
   { path: 'request/list',           component: RequestListComponent },
   { path: 'request/review/list',    component: ReviewComponent},
+  { path: 'request/review/list/:id', component: ReviewListComponent},
 
   { path: 'requestline/create/:id', component: RequestlineCreateComponent },
   { path: 'requestline/edit/:id',   component: RequestlineEditComponent },

@@ -15,8 +15,10 @@ export class RequestCreateComponent implements OnInit {
 
   request: Request = new Request();
   users: User[];
+  user: User;
 
   save():void{
+    this.request.userId = this.user.id
     this.requestscvr.create(this.request)
     .subscribe(
       respond => { //success
@@ -37,6 +39,9 @@ export class RequestCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("Logged in user is: ", this.syssvc.loggedInUser);
+    this.user = this.syssvc.loggedInUser;
+
     this.userscvr.list()
       .subscribe (resp =>{
         this.users = resp;

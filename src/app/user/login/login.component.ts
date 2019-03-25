@@ -15,17 +15,17 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   message: string = '';
-  
-  login():void{
+
+  login(): void {
     this.usersvc.login(this.username, this.password)
       .subscribe(
         resp => {
           console.log("Login Successful", resp);
-          let user = resp;
-          this.syssvc.loggedInUser = user;
+          // let user = resp;
+          this.syssvc.loggedInUser = resp;
           this.router.navigateByUrl("/home")
         },
-        err =>{
+        err => {
           console.error("Login Failed!", err)
           this.message = "  Invalid Username/Password.";
         }
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     private usersvc: UserService,
     private router: Router,
     private syssvc: SystemService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.syssvc.loggedInUser = null; // user not logged in

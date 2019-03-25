@@ -52,6 +52,18 @@ export class RequestDetailComponent implements OnInit {
     );
   }
 
+  statusChange():void{
+    this.requestscvr.reviewStatus(this.request)
+    .subscribe(
+      resp => { //success
+        console.log(resp);
+        this.router.navigateByUrl(`/request/list`);
+      },
+      err =>{ //error
+        console.error(err);
+      });
+  }
+
   delete():void{
     this.requestscvr.remove(this.request)
     .subscribe(

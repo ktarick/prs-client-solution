@@ -27,5 +27,14 @@ const url = 'http://localhost:61260/api'
   listReview(): Observable<Request[]> {
     return this.http.get(`${url}/requests/review`) as Observable<Request[]>;
   }
+  reviewStatus(request:Request): Observable<any>{
+    return this.http.put(`${url}/requests/review/${request.id}`, request) as Observable<any>;
+  }
+  approved(request:Request): Observable<any>{
+    return this.http.put(`${url}/Requests/Approved/${request.id}`, request) as Observable<any>;
+  }
+  rejected(request:Request): Observable<any>{
+    return this.http.put(`${url}/Requests/Rejected/${request.id}`, request) as Observable<any>;
+  }
   constructor(private http: HttpClient) { }
 }
