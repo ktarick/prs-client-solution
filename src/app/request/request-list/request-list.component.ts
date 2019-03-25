@@ -12,20 +12,33 @@ import { User } from '../../user/user.class';
 export class RequestListComponent implements OnInit {
 
   requests: Request[];
-  searchCriteria: string = ""
+  // request: Request;
+  searchCriteria: string = "";
   user: User;
+  sortCriteria: string = "description";
+  sortOrder: string = "asc";
+
 
   constructor(
     private requestsvc: RequestService,
-    private syssvc: SystemService 
+    private syssvc: SystemService
   ) { }
 
+  sortBy(column: string): void {
+    if (this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc"
+    }
+    else {
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
   ngOnInit() {
     console.log("Logged in user is: ", this.syssvc.loggedInUser);
     this.user = this.syssvc.loggedInUser;
 
     this.requestsvc.list()
-      .subscribe(resp =>{
+      .subscribe(resp => {
         console.log(resp);
         this.requests = resp;
       })

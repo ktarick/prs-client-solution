@@ -3,7 +3,7 @@ import { Product } from '../product/product.class'
 import { Vendor } from '../vendor/vendor.class'
 
 @Pipe({
-  name: 'search'
+  name: 'productsearch'
 })
 export class ProductSearchPipe implements PipeTransform {
 

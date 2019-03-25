@@ -3,36 +3,37 @@
   <div>
     <span class="pagetitle">Request List</span>
     <span class="create"> | <a routerLink='/request/create/'>Create</a></span>
-    <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Request Search" class=""></span>
+    <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Request Search"
+        class=""></span>
   </div>
-  <table class="table table-sm table-hover table-bordered">
+  <table  *ngIf="requests" class="table table-sm table-hover table-bordered">
     <thead>
       <tr>
-          <td>User</td>
-          <td>Description</td>
-          <td>Justification</td>
-          <td>Rejection</td>
-          <td>Delivery Mode</td>
-          <td>Date Submitted</td>
-          <td>Status</td>
-          <td>Total</td>
-          <td>Actions</td>
+        <td>User</td>
+        <td><a (click)="sortBy('description')">Description</a></td>
+        <td><a (click)="sortBy('justification')">Justification</a></td>
+        <td><a (click)="sortBy('rejectionReason')">Rejection</a></td>
+        <td><a (click)="sortBy('deliveryMode')">Delivery Mode</a></td>
+        <td><a (click)="sortBy('submittedDate')">Date Submitted</a></td>
+        <td><a (click)="sortBy('status')">Status</a></td>
+        <td>Total</td>
+        <td>Actions</td>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let request of requests | search:searchCriteria" class="coldetail">
-        <td><a routerLink = '/user/detail/{{request.user.id}}'>{{ request.user.username }}</a></td>
-        <td>{{ request.description }}</td>
-        <td>{{ request.justification }}</td>
-        <td>{{ request.rejectionReason }}</td>
-        <td>{{ request.deliveryMode }}</td>
-        <td>{{ request.submittedDate }}</td>
-        <td>{{ request.status }}</td>
-        <td>{{ request.total }}</td>
+      <tr *ngFor="let req of requests | search:searchCriteria | sort:sortCriteria:sortOrder" class="coldetail">
+        <td><a routerLink='/user/detail/{{req.userId}}'>{{ req.user.username }}</a></td>
+        <td>{{ req.description }}</td>
+        <td>{{ req.justification }}</td>
+        <td>{{ req.rejectionReason }}</td>
+        <td>{{ req.deliveryMode }}</td>
+        <td>{{ req.submittedDate }}</td>
+        <td>{{ req.status }}</td>
+        <td>{{ req.total }}</td>
         <td>
-          <a routerLink = '/request/detail/{{request.id}}'> Detail |</a>
-          <a routerLink = '/request/edit/{{request.id}}'> Edit |</a>
-          <a routerLink = '/requestline/list/{{request.id}}'> Lines</a>
+          <a routerLink='/request/detail/{{req.id}}'> Detail |</a>
+          <a *ngIf="user && req.userId == user.id" routerLink='/request/edit/{{req.id}}'> Edit |</a>
+          <a routerLink='/requestline/list/{{req.id}}'> Lines</a>
         </td>
       </tr>
     </tbody>

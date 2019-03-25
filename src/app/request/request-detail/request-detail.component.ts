@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-request-detail',
@@ -13,7 +14,8 @@ export class RequestDetailComponent implements OnInit {
 
   request: Request;
   verify: boolean;
-
+  user: User;
+  
   constructor(private requestscvr: RequestService,
     private route: ActivatedRoute,
     private router: Router,
@@ -21,6 +23,9 @@ export class RequestDetailComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    console.log("Logged in user is: ", this.syssvc.loggedInUser);
+    this.user = this.syssvc.loggedInUser;
+
     let id = this.route.snapshot.params.id;
 
     this.requestscvr.get(id)

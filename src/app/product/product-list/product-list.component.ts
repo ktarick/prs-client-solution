@@ -13,12 +13,13 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   searchCriteria: string = ""
   sortCriteria: string = "partNumber"
-  sortOrder: string = "asc";
+  sortOrder: string = "acs";
 
-  sortBy(column: string): void { 
-    if(this.sortCriteria === column){
-      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc"}
-    else{
+  sortBy(column: string): void {
+    if (this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+    }
+    else {
       this.sortCriteria = column;
       this.sortOrder = "asc";
     }
@@ -26,15 +27,14 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productsvc: ProductService,
-    private syssvc: SystemService 
+    private syssvc: SystemService
   ) { }
 
   ngOnInit() {
     this.productsvc.list()
-      .subscribe(resp =>{
+      .subscribe(resp => {
         console.log(resp);
         this.products = resp;
       })
   }
-
 }

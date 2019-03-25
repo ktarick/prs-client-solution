@@ -16,6 +16,7 @@ export class RequestEditComponent implements OnInit {
   request: Request;
   verify: boolean;
   users: User[];
+  user: User;
 
   edit():void{
     this.requestscvr.change(this.request)
@@ -52,6 +53,9 @@ export class RequestEditComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    console.log("Logged in user is: ", this.syssvc.loggedInUser);
+    this.user = this.syssvc.loggedInUser;
+
     let id = this.route.snapshot.params.id;
 
     this.userscvr.list()

@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vendor of vendors  | search:searchCriteria | sort:sortCriteria:sortOrder" class="coldetail">
+      <tr *ngFor="let vendor of vendors  | vendorsearch:searchCriteria | sort:sortCriteria:sortOrder" class="coldetail">
         <td>{{vendor.code}}</td>
         <td>{{vendor.name}}</td>
         <td>{{vendor.address}} {{vendor.city}} {{vendor.state}} {{vendor.zip}}</td>

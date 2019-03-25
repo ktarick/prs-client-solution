@@ -16,19 +16,20 @@ export class UserListComponent implements OnInit {
   sortCriteria: string = "username"
   sortOrder: string = "asc";
 
-  sortBy(column: string): void { 
-    if(this.sortCriteria === column){
-      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc"}
-    else{
+  constructor(
+    private usersvc: UserService,
+    private syssvc: SystemService
+  ) { }
+
+  sortBy(column: string): void {
+    if (this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc"
+    }
+    else {
       this.sortCriteria = column;
       this.sortOrder = "asc";
     }
   }
-
-  constructor(
-    private usersvc: UserService,
-    private syssvc: SystemService
-    ){}
 
   ngOnInit() {
     this.usersvc.list()

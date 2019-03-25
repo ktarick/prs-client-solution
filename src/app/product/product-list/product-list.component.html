@@ -3,29 +3,30 @@
   <div>
     <span class="pagetitle">Product List</span>
     <span class="create"> | <a routerLink='/product/create'>Create</a></span>
-    <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Product Search" class=""></span>
+    <span class="search"> | <input [(ngModel)]="searchCriteria" type="text" placeholder="Product Search"
+        class=""></span>
   </div>
   <table class="table table-sm table-hover table-bordered">
     <thead>
       <tr>
-          <td>Product Vendor</td>
-          <td><a (click)="sortBy('partNumber')">Part Number</a></td>
-          <td><a (click)="sortBy('name')">Product Name</a></td>
-          <td>Price</td>
-          <td><a (click)="sortBy('unit')">Units</a></td>
-          <td>Actions</td>
+        <td>Product Vendor</td>
+        <td><a (click)="sortBy('partNumber')">Part Number</a></td>
+        <td><a (click)="sortBy('name')">Product Name</a></td>
+        <td>Price</td>
+        <td><a (click)="sortBy('unit')">Units</a></td>
+        <td>Actions</td>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products | search:searchCriteria | sort:sortCriteria"  class="coldetail">
-        <td><a routerLink = '/vendor/detail/{{product.vendor.id}}'>{{ product.vendor.name }}</a></td>
+      <tr *ngFor="let product of products | productsearch:searchCriteria | sort:sortCriteria:sortOrder" class="coldetail">
+        <td><a routerLink='/vendor/detail/{{product.vendor.id}}'>{{ product.vendor.name }}</a></td>
         <td>{{ product.partNumber }}</td>
         <td>{{ product.name }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.unit }}</td>
         <td>
-          <a routerLink = '/product/detail/{{product.id}}'> Detail |</a>
-          <a routerLink = '/product/edit/{{product.id}}'> Edit</a>
+          <a routerLink='/product/detail/{{product.id}}'> Detail |</a>
+          <a routerLink='/product/edit/{{product.id}}'> Edit</a>
         </td>
       </tr>
     </tbody>
