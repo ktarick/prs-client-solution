@@ -27,7 +27,7 @@ export class RequestlineEditComponent implements OnInit {
     .subscribe(
       respond => { //success
         console.log(respond);
-        this.router.navigateByUrl('/requestline/list/{{this.product.requestId}}');
+        this.router.navigateByUrl(`/requestline/list/${this.requestline.requestId}`);
       },
       err =>{ //error
         console.error(err);

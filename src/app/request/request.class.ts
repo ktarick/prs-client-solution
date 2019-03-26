@@ -10,20 +10,15 @@ export class Request{
     total: number;
     active: boolean;
 
-    constructor(
-        description:string = "", justification:string = "",
-        rejectionReason:string = "", deliveryMode: string = "",
-        submittedDate: string = "", status: string = "New",
-        total: number = 0, active: boolean = false
-        )
+    constructor(submittedDate: string)
         {
-        this.description = description;
-        this.justification = justification;
-        this.rejectionReason = rejectionReason;
-        this.deliveryMode = deliveryMode;
-        this.submittedDate = submittedDate;
-        this.status = status;
-        this.total = total;
-        this.active = active;
+        this.description = "";
+        this.justification = "";
+        this.rejectionReason = "";
+        this.deliveryMode = "";
+        this.submittedDate = (new Date()).toISOString();
+        this.status = "New";
+        this.total = 0;
+        this.active = true;
         }
 }

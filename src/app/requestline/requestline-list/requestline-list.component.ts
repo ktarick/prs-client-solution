@@ -5,6 +5,7 @@ import { SystemService } from '../../system/system.service';
 import { Router, ActivatedRoute} from '@angular/router';
 import { Requestline } from '../requestline.class';
 import { RequestlineService } from '../../requestline/requestline.service';
+import { User } from '../../user/user.class'
 
 @Component({
   selector: 'app-requestline-list',
@@ -17,7 +18,8 @@ export class RequestlineListComponent implements OnInit {
   request: Request;
   requestline: Requestline;
   searchCriteria: string = "";
-  
+  user: User;
+
   refresh():void{
     console.log("refresh()");
     this.requestsvc.get(this.request.id.toString())
@@ -49,6 +51,9 @@ export class RequestlineListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("Logged in user is: ", this.syssvc.loggedInUser);
+    this.user = this.syssvc.loggedInUser;
+
     let id = this.route.snapshot.params.id;
 
     this.requestsvc.get(id)
