@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div *ngIf="request">
-  <span class="pagetitle">Requestline List</span>
+  <span class="pagetitle h5">Requestline List</span>
   <span *ngIf="user && request.userId == user.id" class="create"> | <a routerLink='/requestline/create/{{request.id}}'>Create</a></span>
 </div>
 <div>
